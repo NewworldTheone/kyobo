@@ -1,0 +1,516 @@
+/* 페이지별 특화 스타일 */
+
+/* 제품 관리 페이지 */
+.products-page {
+  @apply container mx-auto px-4;
+}
+
+.products-filters {
+  @apply bg-white shadow rounded-lg p-6 mb-6;
+}
+
+.products-filter-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+}
+
+.products-filter-search {
+  @apply lg:col-span-2;
+}
+
+.products-filter-checkbox {
+  @apply flex items-center;
+}
+
+.products-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.product-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow;
+}
+
+.product-card-image {
+  @apply w-full h-48 object-cover;
+}
+
+.product-card-content {
+  @apply p-4;
+}
+
+.product-card-title {
+  @apply text-lg font-semibold text-gray-900 mb-2;
+}
+
+.product-card-sku {
+  @apply text-sm text-gray-500 mb-2;
+}
+
+.product-card-info {
+  @apply space-y-1 text-sm text-gray-600;
+}
+
+.product-card-stock {
+  @apply flex items-center justify-between mt-3;
+}
+
+.product-card-stock-normal {
+  @apply text-green-600 font-medium;
+}
+
+.product-card-stock-low {
+  @apply text-red-600 font-medium;
+}
+
+.product-card-actions {
+  @apply mt-4 flex space-x-2;
+}
+
+/* 제품 상세 페이지 */
+.product-detail-page {
+  @apply container mx-auto px-4;
+}
+
+.product-detail-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+.product-detail-image-section {
+  @apply space-y-4;
+}
+
+.product-detail-main-image {
+  @apply w-full h-96 object-cover rounded-lg shadow-md;
+}
+
+.product-detail-thumbnail-grid {
+  @apply grid grid-cols-4 gap-2;
+}
+
+.product-detail-thumbnail {
+  @apply w-full h-20 object-cover rounded cursor-pointer border-2 border-transparent hover:border-kyobo;
+}
+
+.product-detail-thumbnail-active {
+  @apply border-kyobo;
+}
+
+.product-detail-info {
+  @apply space-y-6;
+}
+
+.product-detail-title {
+  @apply text-3xl font-bold text-gray-900;
+}
+
+.product-detail-sku {
+  @apply text-lg text-gray-500;
+}
+
+.product-detail-price {
+  @apply text-2xl font-bold text-kyobo;
+}
+
+.product-detail-specs {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.product-detail-spec-item {
+  @apply bg-gray-50 p-3 rounded;
+}
+
+.product-detail-spec-label {
+  @apply text-sm font-medium text-gray-500;
+}
+
+.product-detail-spec-value {
+  @apply text-lg font-semibold text-gray-900;
+}
+
+/* 재고 조정 페이지 */
+.inventory-adjust-page {
+  @apply container mx-auto px-4;
+}
+
+.inventory-adjust-form {
+  @apply space-y-6;
+}
+
+.inventory-adjust-type-options {
+  @apply mt-1 flex space-x-4;
+}
+
+.inventory-adjust-type-option {
+  @apply flex items-center;
+}
+
+.inventory-adjust-offline-notice {
+  @apply rounded-md bg-yellow-50 p-4;
+}
+
+.inventory-adjust-offline-content {
+  @apply flex;
+}
+
+.inventory-adjust-offline-icon {
+  @apply flex-shrink-0;
+}
+
+.inventory-adjust-offline-text {
+  @apply ml-3;
+}
+
+.inventory-adjust-offline-title {
+  @apply text-sm font-medium text-yellow-800;
+}
+
+.inventory-adjust-offline-message {
+  @apply mt-2 text-sm text-yellow-700;
+}
+
+/* 대량 업로드 페이지 */
+.bulk-upload-page {
+  @apply container mx-auto px-4;
+}
+
+.bulk-upload-form {
+  @apply space-y-6;
+}
+
+.bulk-upload-format-info {
+  @apply bg-gray-50 p-4 rounded-md;
+}
+
+.bulk-upload-format-title {
+  @apply text-sm font-medium text-gray-900;
+}
+
+.bulk-upload-format-content {
+  @apply mt-2 text-sm text-gray-500;
+}
+
+.bulk-upload-format-list {
+  @apply list-disc pl-5 mt-1 space-y-1;
+}
+
+.bulk-upload-sample-link {
+  @apply text-kyobo hover:text-kyobo-dark;
+}
+
+/* 대시보드 페이지 */
+.dashboard-page {
+  @apply container mx-auto px-4;
+}
+
+.dashboard-stats-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8;
+}
+
+.dashboard-stat-card {
+  @apply bg-white rounded-lg shadow p-6;
+}
+
+.dashboard-stat-header {
+  @apply flex items-center justify-between;
+}
+
+.dashboard-stat-title {
+  @apply text-sm font-medium text-gray-500;
+}
+
+.dashboard-stat-icon {
+  @apply h-8 w-8 text-gray-400;
+}
+
+.dashboard-stat-value {
+  @apply text-3xl font-bold text-gray-900;
+}
+
+.dashboard-stat-change {
+  @apply text-sm;
+}
+
+.dashboard-stat-change-positive {
+  @apply text-green-600;
+}
+
+.dashboard-stat-change-negative {
+  @apply text-red-600;
+}
+
+.dashboard-charts-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+.dashboard-chart-card {
+  @apply bg-white rounded-lg shadow p-6;
+}
+
+.dashboard-chart-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+/* AI 인사이트 페이지 */
+.ai-insights-page {
+  @apply container mx-auto px-4;
+}
+
+.ai-insights-grid {
+  @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+}
+
+.ai-insight-card {
+  @apply bg-white rounded-lg shadow p-6;
+}
+
+.ai-insight-header {
+  @apply flex items-center mb-4;
+}
+
+.ai-insight-icon {
+  @apply h-6 w-6 mr-2 text-kyobo;
+}
+
+.ai-insight-title {
+  @apply text-lg font-semibold text-gray-900;
+}
+
+.ai-insight-content {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.ai-insight-loading {
+  @apply flex items-center justify-center h-32;
+}
+
+.ai-insight-error {
+  @apply text-red-600 text-center;
+}
+
+/* 바코드 스캐너 페이지 */
+.barcode-scanner-page {
+  @apply container mx-auto px-4;
+}
+
+.barcode-scanner-container {
+  @apply max-w-md mx-auto;
+}
+
+.barcode-scanner-video {
+  @apply w-full rounded-lg shadow-lg;
+}
+
+.barcode-scanner-controls {
+  @apply mt-4 space-y-4;
+}
+
+.barcode-scanner-device-select {
+  @apply w-full;
+}
+
+.barcode-scanner-result {
+  @apply mt-4 p-4 bg-green-50 border border-green-200 rounded-lg;
+}
+
+.barcode-scanner-result-title {
+  @apply font-semibold text-green-800;
+}
+
+.barcode-scanner-result-value {
+  @apply text-green-700 font-mono;
+}
+
+/* 로그인 페이지 */
+.login-page {
+  @apply min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8;
+}
+
+.login-container {
+  @apply max-w-md w-full space-y-8;
+}
+
+.login-header {
+  @apply text-center;
+}
+
+.login-title {
+  @apply mt-6 text-3xl font-extrabold text-gray-900;
+}
+
+.login-subtitle {
+  @apply mt-2 text-sm text-gray-600;
+}
+
+.login-form {
+  @apply mt-8 space-y-6;
+}
+
+.login-form-group {
+  @apply rounded-md shadow-sm -space-y-px;
+}
+
+.login-input {
+  @apply appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-kyobo focus:border-kyobo focus:z-10 sm:text-sm;
+}
+
+.login-input-first {
+  @apply rounded-t-md;
+}
+
+.login-input-last {
+  @apply rounded-b-md;
+}
+
+.login-submit {
+  @apply group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-kyobo hover:bg-kyobo-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-kyobo;
+}
+
+/* 설정 페이지 */
+.settings-page {
+  @apply container mx-auto px-4;
+}
+
+.settings-tabs {
+  @apply border-b border-gray-200 mb-6;
+}
+
+.settings-tab-list {
+  @apply flex space-x-8;
+}
+
+.settings-tab {
+  @apply py-2 px-1 border-b-2 font-medium text-sm;
+}
+
+.settings-tab-active {
+  @apply border-kyobo text-kyobo;
+}
+
+.settings-tab-inactive {
+  @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+}
+
+.settings-section {
+  @apply bg-white shadow rounded-lg p-6 mb-6;
+}
+
+.settings-section-title {
+  @apply text-lg font-medium text-gray-900 mb-4;
+}
+
+.settings-form {
+  @apply space-y-4;
+}
+
+/* 보고서 페이지 */
+.reports-page {
+  @apply container mx-auto px-4;
+}
+
+.reports-filters {
+  @apply bg-white shadow rounded-lg p-6 mb-6;
+}
+
+.reports-filter-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4;
+}
+
+.reports-charts {
+  @apply space-y-8;
+}
+
+.reports-chart-card {
+  @apply bg-white shadow rounded-lg p-6;
+}
+
+.reports-chart-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+.reports-export-section {
+  @apply bg-white shadow rounded-lg p-6;
+}
+
+.reports-export-title {
+  @apply text-lg font-semibold text-gray-900 mb-4;
+}
+
+.reports-export-options {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+/* 관리자 대시보드 */
+.admin-dashboard-page {
+  @apply container mx-auto px-4;
+}
+
+.admin-dashboard-tabs {
+  @apply border-b border-gray-200 mb-6;
+}
+
+.admin-dashboard-tab-list {
+  @apply flex space-x-8;
+}
+
+.admin-dashboard-tab {
+  @apply py-2 px-1 border-b-2 font-medium text-sm cursor-pointer;
+}
+
+.admin-dashboard-tab-active {
+  @apply border-kyobo text-kyobo;
+}
+
+.admin-dashboard-tab-inactive {
+  @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+}
+
+.admin-dashboard-content {
+  @apply space-y-6;
+}
+
+.admin-dashboard-section {
+  @apply bg-white shadow rounded-lg p-6;
+}
+
+.admin-dashboard-section-title {
+  @apply text-lg font-medium text-gray-900 mb-4;
+}
+
+/* 반응형 유틸리티 */
+@media (max-width: 640px) {
+  .mobile-stack {
+    @apply flex-col space-y-2 space-x-0;
+  }
+  
+  .mobile-full-width {
+    @apply w-full;
+  }
+  
+  .mobile-text-center {
+    @apply text-center;
+  }
+}
+
+@media (max-width: 768px) {
+  .tablet-stack {
+    @apply flex-col space-y-4 space-x-0;
+  }
+  
+  .tablet-grid-1 {
+    @apply grid-cols-1;
+  }
+}
+
+/* 프린트 스타일 */
+@media print {
+  .print-hidden {
+    @apply hidden;
+  }
+  
+  .print-page-break {
+    page-break-before: always;
+  }
+  
+  .print-no-break {
+    page-break-inside: avoid;
+  }
+}

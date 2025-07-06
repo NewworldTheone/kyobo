@@ -1,0 +1,4 @@
+name,sku,category,brand,location,quantity,safetyStock,price,description
+테스트 제품1,TEST001,전자제품,삼성,A-1-1,100,10,50000,테스트용 제품입니다
+테스트 제품2,TEST002,가전제품,LG,B-2-3,50,5,75000,또 다른 테스트 제품
+테스트 제품3,TEST003,컴퓨터,애플,C-1-2,25,3,120000,고급 테스트 제품

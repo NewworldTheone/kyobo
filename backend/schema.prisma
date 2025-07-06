@@ -1,0 +1,120 @@
+// 데이터베이스 스키마 확장 - 사진 업로드 및 위치 관리 기능 추가
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(staff)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 관계
+  inventoryAdjustments InventoryAdjustment[]
+  locationHistories    LocationHistory[]
+  salesRecords         SalesRecord[]
+}
+
+enum Role {
+  admin
+  staff
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  name         String
+  sku          String   @unique
+  category     String
+  brand        String
+  location     String
+  quantity     Int
+  safetyStock  Int
+  price        Float
+  description  String?
+  productImage String?  // 제품 이미지 경로
+  locationImage String? // 창고/매장 위치 이미지 경로
+  coordinates  Json?    // 매장/창고 내 좌표 정보 (x, y)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // 관계
+  inventoryAdjustments InventoryAdjustment[]
+  locationHistories    LocationHistory[]
+  salesRecords         SalesRecord[]
+}
+
+model InventoryAdjustment {
+  id             String   @id @default(uuid())
+  productId      String
+  userId         String
+  quantity       Int      // 양수: 입고, 음수: 출고
+  memo           String?
+  adjustmentType String   // '입고' 또는 '출고'
+  createdAt      DateTime @default(now())
+
+  // 관계
+  product        Product @relation(fields: [productId], references: [id])
+  user           User    @relation(fields: [userId], references: [id])
+}
+
+model LocationHistory {
+  id           String   @id @default(uuid())
+  productId    String
+  userId       String
+  fromLocation String
+  toLocation   String
+  fromCoordinates Json? // 이전 좌표 정보
+  toCoordinates   Json? // 새 좌표 정보
+  movedAt      DateTime @default(now())
+
+  // 관계
+  product   Product @relation(fields: [productId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+// 새로운 모델: 매장/창고 레이아웃
+model StoreLayout {
+  id          String   @id @default(uuid())
+  name        String   // 매장/창고 이름
+  description String?
+  imageUrl    String?  // 레이아웃 이미지 경로
+  width       Int      // 레이아웃 너비 (그리드 단위)
+  height      Int      // 레이아웃 높이 (그리드 단위)
+  sections    Json     // 섹션 정보 (JSON 형식)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 새로운 모델: 판매 데이터
+model SalesRecord {
+  id        String   @id @default(uuid())
+  productId String
+  userId    String
+  quantity  Int
+  saleDate  DateTime @default(now())
+  amount    Float
+  
+  // 관계
+  product   Product @relation(fields: [productId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
+}
+
+// 새로운 모델: 시스템 설정
+model SystemSettings {
+  id                String   @id @default(uuid())
+  settingKey        String   @unique
+  settingValue      String
+  settingType       String   // string, number, boolean, json
+  description       String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
